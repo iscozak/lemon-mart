@@ -4,3 +4,8 @@ export enum Role {
   Cashier = 'cashier',
   Manager = 'manager',
 }
+
+export enum AuthMode {
+  InMemory = 'In memory',
+  CustomService = 'Custom Service',
+}
