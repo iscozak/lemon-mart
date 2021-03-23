@@ -9,14 +9,17 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: npm ci
+      - run: npm run style
+      - run: npm run lint
+      - run: npm run build:prod
       - run: npm test -- --watch=false --code-coverage
       - run: npm run e2e
+
       - store_test_results:
           path: ./test_results
       - store_artifacts:
           path: ./coverage
-      - coveralls/upload
+
       - coveralls/upload
 
       - run:
