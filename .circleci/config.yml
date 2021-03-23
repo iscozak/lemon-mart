@@ -13,13 +13,13 @@ jobs:
             docker build -f integration.Dockerfile . -t lemon-mart:$CIRCLE_BRANCH
             mkdir -p docker-cache
             docker save lemon-mart:$CIRCLE_BRANCH | gzip > dockercache/built-image.tar.gz
-    - save_cache:
-        key: built-image-{{ .BuildNum }}
-        paths:
-          - docker-cache
-    - store_artifacts:
-        path: docker-cache/built-image.tar.gz
-        destination: built-image.tar.gz
+      - save_cache:
+          key: built-image-{{ .BuildNum }}
+          paths:
+            - docker-cache
+      - store_artifacts:
+          path: docker-cache/built-image.tar.gz
+          destination: built-image.tar.gz
 workflows:
   version: 2
   build-and-deploy:
