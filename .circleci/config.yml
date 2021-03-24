@@ -21,7 +21,7 @@ jobs:
       - store_artifacts:
           path: ./coverage
 
-      - coveralls/upload
+      - coveralls/upload:
           path_to_lcov: ./coverage/lemon-mart/lcov.info
       - run:
           name: Tar & Gzip compiled app
