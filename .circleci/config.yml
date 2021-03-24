@@ -22,7 +22,7 @@ jobs:
           path: ./coverage
 
       - coveralls/upload
-
+          path_to_lcov: ./coverage/lemon-mart/lcov.info
       - run:
           name: Tar & Gzip compiled app
           command: tar zcf dist.tar.gz dist/lemon-mart
